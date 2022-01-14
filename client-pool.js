@@ -18,6 +18,8 @@ function ClientPool(options) {
   clientConnectOptions.query = {
     authKey: this.authKey
   };
+  clientConnectOptions.batchOnHandshake = true
+  clientConnectOptions.batchOnHandshakeDuration = 500
 
   this._handleClientError = (event) => {
     this.emit('error', event);
